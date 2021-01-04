@@ -40,7 +40,8 @@ if (!gotTheLock) {
       if (loading.isMinimized()) loading.restore();
       loading.focus();
     } else if (mainWindow) {
-      createWindow();
+      if (mainWindow.isMinimized()) mainWindow.restore();
+      mainwindow.focus();
     }
   });
 
@@ -87,7 +88,6 @@ function createWindow() {
   });
 
   mainWindow.loadURL(process.env.APP_URL);
-
   mainWindow.on("closed", () => {
     mainWindow = null;
   });
