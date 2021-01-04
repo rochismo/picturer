@@ -1,8 +1,8 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+    <q-header elevated class="z-max">
       <Bar />
-      <AppMenu />
+      <AppMenu class="z-max" />
     </q-header>
 
     <q-scroll-area class="fit" style="width: 100% !important; height: 100vh !important;">

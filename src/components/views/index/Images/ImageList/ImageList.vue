@@ -46,7 +46,8 @@ export default class ImageList extends Vue {
   currentPage = 1;
 
   get maxItems() {
-    return this.$q.screen.lt.md ? 5 : 8;
+    const screen = this.$q.screen;
+    return screen.lt.md ? 2 : 8;
   }
 
   get pagination() {

@@ -1,10 +1,18 @@
 <template>
   <q-card class="image col-3">
+    <q-dialog v-model="expand" maximized>
+      <img
+        class="q-mx-md full-screen-img"
+        style="width: 500px !important;  height: 500px !important"
+        :src="`data:image/png;base64,${displayImage.base64Url}`"
+      />
+    </q-dialog>
     <q-card-section horizontal>
       <q-img
-        class="col q-mx-md"
+        class="col q-ma-md cursor-pointer display-image"
         :src="`data:image/png;base64,${displayImage.base64Url}`"
         img-class="avatar-img"
+        @click="expand = true"
       >
         <div class="absolute-bottom text-center text-h6">
           {{ displayImage.domain }}
@@ -101,6 +109,7 @@ export default class ImageComponent extends Vue {
   hadError: boolean = false;
   errorMessage: string = "";
   updatingImage: boolean = false;
+  expand: boolean = false;
 
   constructor() {
     super();
@@ -125,26 +134,26 @@ export default class ImageComponent extends Vue {
     );
   }
 
-  onUpdatedImage(_: any, data: ImageData | any ) {
+  onUpdatedImage(_: any, data: ImageData | any) {
     this.updatingImage = false;
     if (data.hadError) {
       return this._setError(data.message);
     }
 
     if (data.exists) {
-      return this._setError("Image already exists")
+      return this._setError("Image already exists");
     }
     this.editMode = false;
     this.displayImage = data;
     this.imageCopy = { ...this.displayImage };
     this.$store.commit("links/updateImage", this.displayImage);
-    this.sendNotification("Image updated successfully", "edit")
+    this.sendNotification("Image updated successfully", "edit");
   }
 
   setFavorite() {
     this.displayImage.favorite = !this.displayImage.favorite;
     this.$store.commit("links/updateImage", this.displayImage);
-    this.$q.electron.ipcRenderer.send("set-favorite", this.displayImage)
+    this.$q.electron.ipcRenderer.send("set-favorite", this.displayImage);
   }
 
   toggleEditMode() {
@@ -233,10 +242,17 @@ export default class ImageComponent extends Vue {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .image {
   width: 500px !important;
   max-height: 600px !important;
+}
+
+.full-screen-img {
+  padding: 2rem;
+  border: solid 5px $dark;
+  background: $dark;
+  border-radius: 1rem;
 }
 
 .icon-btn {
@@ -245,5 +261,12 @@ export default class ImageComponent extends Vue {
 
 .avatar-img {
   height: 300px !important;
+}
+
+.display-image {
+  &:hover {
+    transform: translateY(-25px);
+  }
+  transition: 0.5s ease;
 }
 </style>
