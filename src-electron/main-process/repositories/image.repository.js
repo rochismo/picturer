@@ -4,7 +4,7 @@ const FileSync = require("lowdb/adapters/FileSync");
 
 export default class ImageRepository {
   constructor() {
-    const adapter = new FileSync(path.join(__dirname, "db.json"));
+    const adapter = new FileSync(path.join(__dirname, "..", "db.json"));
     this.db = low(adapter);
 
     this.db.defaults({ images: [] }).write();

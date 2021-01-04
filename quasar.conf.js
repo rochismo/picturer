@@ -172,11 +172,12 @@ module.exports = configure(function(/* ctx */) {
 
         appId: "picturer",
         win: {
-          target: "nsis"
+          target: "nsis",
         },
         nsis: {
           deleteAppDataOnUninstall: true,
-          allowElevation: true
+          allowElevation: true,
+          allowToChangeInstallationDirectory: true
         },
         publish: {
           provider: "bintray",
