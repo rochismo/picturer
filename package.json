@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
+    "@types/node": "12.19.11",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "electron-log": "^4.3.1",
