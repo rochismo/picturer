@@ -136,7 +136,7 @@ autoUpdater.on("download-progress", ({ percent, transferred, total }) => {
 });
 
 app.on("ready", () => {
-  if (process.env.NODE_ENV !== "development") {
+  if (process.env.NODE_ENV === "development") {
     return createWindow();
   }
   loading = new BrowserWindow({

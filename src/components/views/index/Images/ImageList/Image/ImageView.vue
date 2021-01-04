@@ -91,13 +91,7 @@ import { Vue, Component, Prop } from "vue-property-decorator";
 import { ErrorData, ImageData } from "../../../typings";
 
 @Component({
-  name: "ImageView",
-  beforeDestroy() {
-    this.$q.electron.ipcRenderer.off(
-      `updated-${this.imageData.id}`,
-      this.onUpdatedImage
-    );
-  }
+  name: "ImageView"
 })
 export default class ImageComponent extends Vue {
   @Prop({ required: true }) readonly imageData!: ImageData;
@@ -121,6 +115,14 @@ export default class ImageComponent extends Vue {
   _setError(message: string) {
     this.hadError = true;
     this.errorMessage = message;
+  }
+
+  // If you dont work you can fuck off
+  beforeDestroy() {
+    this.$q.electron.ipcRenderer.off(
+      `updated-${this.imageData.id}`,
+      this.onUpdatedImage
+    );
   }
 
   onUpdatedImage(_: any, data: ImageData | any ) {
