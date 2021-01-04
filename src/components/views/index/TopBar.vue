@@ -60,9 +60,11 @@ export default class TopBar extends Vue {
     }
 
     this.$store.commit("links/addImage", data);
+    this.imageUrl = "";
     const message = this.showFavorites
       ? "Image was added but not displayed because you're showing favourited images"
       : "Image added successfully";
+
     this.$q.notify({
       message,
       progress: true,
