@@ -1,6 +1,6 @@
 <template>
   <q-bar class="q-electron-drag">
-    <img src="favicon.ico" width="25" height="25" />
+    <q-icon name="camera_alt" color="white" />
     <div>ᴘɪᴄᴛᴜʀᴇʀ</div>
     
     <q-space />

@@ -176,6 +176,7 @@ module.exports = configure(function(/* ctx */) {
         },
         nsis: {
           deleteAppDataOnUninstall: true,
+          oneClick: false,
           allowElevation: true,
           allowToChangeInstallationDirectory: true
         },
