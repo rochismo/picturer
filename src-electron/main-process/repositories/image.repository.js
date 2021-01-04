@@ -2,9 +2,14 @@ const low = require("lowdb");
 const path = require("path");
 const FileSync = require("lowdb/adapters/FileSync");
 const { app } = require("electron")
+const fs = require("fs");
 export default class ImageRepository {
   constructor() {
-    const adapter = new FileSync(path.join(app.getPath("documents"), "Picturer", "database.json"));
+    const dir = path.join(app.getPath("documents"), "Picturer");
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir);
+    }
+    const adapter = new FileSync(path.join(dir, "database.json"));
     this.db = low(adapter);
 
     this.db.defaults({ images: [] }).write();
