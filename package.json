@@ -1,0 +1,48 @@
+{
+  "name": "picturer",
+  "version": "0.0.1",
+  "description": "A simple tool to save picture urls",
+  "productName": "Picturer",
+  "author": "rochismo <alexis.platino@gmail.com>",
+  "private": true,
+  "scripts": {
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.0.0",
+    "axios": "^0.21.1",
+    "core-js": "^3.6.5",
+    "extract-domain": "^2.2.1",
+    "lowdb": "^1.0.0",
+    "quasar": "^1.0.0",
+    "update-electron-app": "^2.0.1",
+    "vue-class-component": "^7.2.2",
+    "vue-property-decorator": "^8.3.0"
+  },
+  "devDependencies": {
+    "@quasar/app": "^2.0.0",
+    "@types/node": "^10.17.15",
+    "devtron": "^1.4.0",
+    "electron": "^9.0.0",
+    "electron-debug": "^3.0.1",
+    "electron-devtools-installer": "^3.0.0",
+    "vuex-module-decorators": "^1.0.1"
+  },
+  "browserslist": [
+    "ie >= 11",
+    "last 10 Chrome versions",
+    "last 10 Firefox versions",
+    "last 4 Edge versions",
+    "last 7 Safari versions",
+    "last 8 Android versions",
+    "last 8 ChromeAndroid versions",
+    "last 8 FirefoxAndroid versions",
+    "last 10 iOS versions",
+    "last 5 Opera versions"
+  ],
+  "engines": {
+    "node": ">= 10.18.1",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
+  }
+}
