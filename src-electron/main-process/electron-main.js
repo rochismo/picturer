@@ -41,7 +41,7 @@ if (!gotTheLock) {
       loading.focus();
     } else if (mainWindow) {
       if (mainWindow.isMinimized()) mainWindow.restore();
-      mainwindow.focus();
+      mainWindow.focus();
     }
   });
 
